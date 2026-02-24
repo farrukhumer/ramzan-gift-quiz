@@ -43,6 +43,13 @@ export default function App() {
   });
 
   useEffect(() => {
+    // Adsterra Script Injection
+    const script = document.createElement('script');
+    script.async = true;
+    script.setAttribute('data-cfasync', 'false');
+    script.src = 'https://pl28783956.effectivegatecpm.com/5e89a2a9366dfeef1ed32e95512a79bc/invoke.js';
+    document.body.appendChild(script);
+
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
     const socket = new WebSocket(`${protocol}//${window.location.host}`);
 
@@ -365,30 +372,35 @@ export default function App() {
                 </p>
               </div>
             </div>
-
-            <footer className="text-slate-400 text-xs pb-6 flex flex-col items-center gap-4">
-              <div className="flex items-center gap-6 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-sm border border-slate-100">
-                <div className="flex flex-col items-center">
-                  <div className="flex items-center gap-1.5 text-emerald-600 font-bold text-sm">
-                    <Users className="w-4 h-4" />
-                    <span>{visitorCount + 120}</span>
-                  </div>
-                  <span className="text-[10px] text-slate-400">آن لائن صارفین</span>
-                </div>
-                <div className="w-px h-8 bg-slate-100" />
-                <div className="flex flex-col items-center">
-                  <div className="flex items-center gap-1.5 text-amber-600 font-bold text-sm">
-                    <Trophy className="w-4 h-4" />
-                    <span>{fakeWinners}</span>
-                  </div>
-                  <span className="text-[10px] text-slate-400">کل خوش نصیب</span>
-                </div>
-              </div>
-              
-              <p className="text-[10px]">&copy; 2026 حکومتِ پاکستان - ڈیجیٹل رمضان ریلیف پورٹل</p>
-            </footer>
           </div>
         )}
+
+        {/* Adsterra Native Banner */}
+        <div className="my-6 min-h-[100px] flex justify-center items-center bg-white/50 rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+          <div id="container-5e89a2a9366dfeef1ed32e95512a79bc"></div>
+        </div>
+
+        <footer className="text-slate-400 text-xs pb-6 flex flex-col items-center gap-4">
+          <div className="flex items-center gap-6 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-sm border border-slate-100">
+            <div className="flex flex-col items-center">
+              <div className="flex items-center gap-1.5 text-emerald-600 font-bold text-sm">
+                <Users className="w-4 h-4" />
+                <span>{visitorCount + 120}</span>
+              </div>
+              <span className="text-[10px] text-slate-400">آن لائن صارفین</span>
+            </div>
+            <div className="w-px h-8 bg-slate-100" />
+            <div className="flex flex-col items-center">
+              <div className="flex items-center gap-1.5 text-amber-600 font-bold text-sm">
+                <Trophy className="w-4 h-4" />
+                <span>{fakeWinners}</span>
+              </div>
+              <span className="text-[10px] text-slate-400">کل خوش نصیب</span>
+            </div>
+          </div>
+          
+          <p className="text-[10px]">&copy; 2026 حکومتِ پاکستان - ڈیجیٹل رمضان ریلیف پورٹل</p>
+        </footer>
       </main>
     </div>
   );
